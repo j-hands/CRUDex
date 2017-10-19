@@ -1,0 +1,12 @@
+<div *ngIf="pokemon">         <!--Only displays if a Pokemon is selected from PokemonListComponent-->
+  <h2>{{pokemon.name}}</h2>   <!--Selected Pokemon's name-->
+  <img src="{{pokemon.image}}" style="width:128px;height:128px;"> <!--Pokemon's artwork-->
+  <p>
+    <img src="/assets/Types/{{pokemon.type1}}.png">
+    <!--Image representing Pokemon's primary type-->
+    <span *ngIf="pokemon.type2"> <img src="/assets/Types/{{pokemon.type2}}.png"></span>
+    <!--Image representing Pokemon's secondary type, if present-->
+  </p>
+  <!--Stat calculator segment of the page-->
+  <stat-calculator [pokemon]="pokemon"></stat-calculator>
+</div>

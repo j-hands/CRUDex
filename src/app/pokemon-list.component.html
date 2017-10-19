@@ -1,0 +1,16 @@
+<div class="pokemonListPos">
+  <h2>Pokemon:</h2>
+  <ul class="pokemonList">
+    <li *ngFor="let pokemon of pokemonList"
+      [class.selected]="pokemon === selectedPokemon"
+      (click)="onSelect(pokemon)">
+      <span class="badge">{{pokemon.PokemonId}}</span> {{pokemon.PokemonName}}
+    </li>
+  </ul>
+<!--The Pokedex page for the selected Pokemon
+  <sticky sticky-end-class="pokedexPage">
+    <div class="pokedexPage">
+      <pokedex-page [pokemon]="selectedPokemon"></pokedex-page>
+    </div>
+  </sticky>-->
+</div>
