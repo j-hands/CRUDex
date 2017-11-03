@@ -21,13 +21,6 @@ namespace CrudexBackend.Controllers
         public IQueryable<Pokemon> GetPokemons()
         {
             return db.Pokemons;
-            /*var testList = db.Formes.Include(f=> f.Pokemon).ToList();
-            var test = db.Pokemons.Join(testList, p => p.PokemonId, f => f.PokemonId, (p,f) => new {p,f});
-            foreach(var pf in test)
-            {
-                pf.p.Formes.Add(pf.f);
-            }
-            return test.Select(pf => pf.p);*/
         }
 
         // GET: api/Pokemons/5
@@ -52,7 +45,7 @@ namespace CrudexBackend.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != pokemon.PokemonId)
+            if (id != pokemon.Id)
             {
                 return BadRequest();
             }
@@ -90,7 +83,7 @@ namespace CrudexBackend.Controllers
             db.Pokemons.Add(pokemon);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = pokemon.PokemonId }, pokemon);
+            return CreatedAtRoute("DefaultApi", new { id = pokemon.Id }, pokemon);
         }
 
         // DELETE: api/Pokemons/5
@@ -120,7 +113,7 @@ namespace CrudexBackend.Controllers
 
         private bool PokemonExists(int id)
         {
-            return db.Pokemons.Count(e => e.PokemonId == id) > 0;
+            return db.Pokemons.Count(e => e.Id == id) > 0;
         }
     }
 }

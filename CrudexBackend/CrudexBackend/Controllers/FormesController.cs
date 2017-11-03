@@ -45,7 +45,7 @@ namespace CrudexBackend.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != forme.FormeId)
+            if (id != forme.Id)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace CrudexBackend.Controllers
             db.Formes.Add(forme);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = forme.FormeId }, forme);
+            return CreatedAtRoute("DefaultApi", new { id = forme.Id }, forme);
         }
 
         // DELETE: api/Formes/5
@@ -113,7 +113,7 @@ namespace CrudexBackend.Controllers
 
         private bool FormeExists(int id)
         {
-            return db.Formes.Count(e => e.FormeId == id) > 0;
+            return db.Formes.Count(e => e.Id == id) > 0;
         }
     }
 }

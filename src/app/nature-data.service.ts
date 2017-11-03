@@ -7,7 +7,7 @@ import { Nature } from './nature';
 
 @Injectable()
 export class NatureDataService {
-  private natureUrl = 'api/natureList';
+  private natureUrl = 'http://localhost:57135/api/natures';
 
   constructor(private http: Http) { }
 
@@ -15,7 +15,7 @@ export class NatureDataService {
   getNatureList(): Promise<Nature[]> {
     return this.http.get(this.natureUrl)
       .toPromise()
-      .then(response => response.json().data)
+      .then(response => response.json())
       .catch(this.handleError);
   }
 
@@ -28,6 +28,6 @@ export class NatureDataService {
   //Takes a Nature name and returns the associated Nature object
   getNature(name: string): Promise<Nature> {
     return this.getNatureList()
-      .then(natureList => natureList.find(nature => nature.name === name));
+      .then(natureList => natureList.find(nature => nature.Name === name));
   }
 }

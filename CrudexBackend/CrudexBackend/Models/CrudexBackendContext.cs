@@ -20,11 +20,6 @@ namespace CrudexBackend.Models
 
         public DbSet<Pokemon> Pokemons { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Pokemon>()
-                .HasMany<Forme>(p => p.Formes)
-                .WithRequired(f => f.MainPokemon);
-        }
+        public DbSet<Nature> Natures { get; set; }
     }
 }

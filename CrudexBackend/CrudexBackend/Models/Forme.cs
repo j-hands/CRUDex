@@ -4,8 +4,8 @@ namespace CrudexBackend.Models
 {
     public class Forme
     {
-        public int FormeId { get; set; }
-        public string FormeName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         public int Hp { get; set; }
         public int Att { get; set; }
         public int Def { get; set; }
@@ -15,9 +15,9 @@ namespace CrudexBackend.Models
         public string Type1 { get; set; }
         public string Type2 { get; set; }
         public string Image { get; set; }
-        
-        public int MainPokemonId { get; set; }
-        //[ForeignKey("MainPokemonId")]
-        public Pokemon MainPokemon { get; set; }
+        public string Description { get; set; }
+
+        public int PokemonId { get; set; }
+        public virtual Pokemon Pokemon { get; set; }
     }
 }

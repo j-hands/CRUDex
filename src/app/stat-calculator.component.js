@@ -12,13 +12,13 @@ var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var nature_data_service_1 = require("./nature-data.service");
 var validation_service_1 = require("./validation.service");
-var pokemon_1 = require("./pokemon");
+var forme_1 = require("./forme");
 var StatCalculatorComponent = (function () {
     function StatCalculatorComponent(fb, natureDataService) {
         this.fb = fb;
         this.natureDataService = natureDataService;
     }
-    //Retrieves the natureList from in-memory data
+    //Retrieves the natureList from backend
     StatCalculatorComponent.prototype.getNatureList = function () {
         var _this = this;
         this.natureDataService.getNatureList()
@@ -40,7 +40,7 @@ var StatCalculatorComponent = (function () {
             spAttackEv: [0, validation_service_1.ValidationService.NumericRangeValidator(0, 255)],
             spDefenseEv: [0, validation_service_1.ValidationService.NumericRangeValidator(0, 255)],
             speedEv: [0, validation_service_1.ValidationService.NumericRangeValidator(0, 255)],
-            nature: ['Select a nature'],
+            nature: ['Select a Nature'],
             level: [100, validation_service_1.ValidationService.NumericRangeValidator(1, 100)],
         });
     };
@@ -48,8 +48,8 @@ var StatCalculatorComponent = (function () {
 }());
 __decorate([
     core_1.Input(),
-    __metadata("design:type", pokemon_1.Pokemon)
-], StatCalculatorComponent.prototype, "pokemon", void 0);
+    __metadata("design:type", forme_1.Forme)
+], StatCalculatorComponent.prototype, "forme", void 0);
 StatCalculatorComponent = __decorate([
     core_1.Component({
         selector: 'stat-calculator',

@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { NatureDataService } from './nature-data.service';
 import { ValidationService } from './validation.service';
 
-import { Pokemon } from './pokemon';
+import { Forme } from './forme';
 import { Nature } from './nature';
 
 @Component({
@@ -14,17 +14,18 @@ import { Nature } from './nature';
 })
 
 export class StatCalculatorComponent {
-  @Input() pokemon: Pokemon; //Takes the selected Pokemon from PokedexPageComponent
+  @Input() forme: Forme; //Takes the selected Pokemon from PokedexPageComponent
 
   statCalcForm: FormGroup; //Form for stat calculation
   natureList: Nature[]; //The list of selectable Nature objects
+  hardy: Nature; //Stores "Hardy" as the first nature to be selected
 
   constructor(
     private fb: FormBuilder,
     private natureDataService: NatureDataService,
   ) {}
 
-  //Retrieves the natureList from in-memory data
+  //Retrieves the natureList from backend
   getNatureList(): void {
     this.natureDataService.getNatureList()
       .then(natureList => this.natureList = natureList);
@@ -47,7 +48,7 @@ export class StatCalculatorComponent {
       spAttackEv: [0, ValidationService.NumericRangeValidator(0,255)],
       spDefenseEv: [0, ValidationService.NumericRangeValidator(0,255)],
       speedEv: [0, ValidationService.NumericRangeValidator(0,255)],
-      nature: ['Select a nature'],
+      nature: ['Select a Nature'],
       level: [100, ValidationService.NumericRangeValidator(1,100)],
     });
   }

@@ -1,9 +1,9 @@
 import { Forme } from './forme';
 
 export class Pokemon {
-  pokemonId: number;           //National Pokedex Id
-  pokemonName: string;         //Name
-  formes: Forme[];
+  Id: number;           //National Pokedex Id
+  Name: string;         //Name
+  Formes: Forme[];      //All possible formes of a Pokemon
   /*hp: number;     //Base health points
   att: number;    //Base attack
   def: number;    //Base defense

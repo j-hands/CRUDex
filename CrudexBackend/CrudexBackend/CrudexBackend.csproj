@@ -191,45 +191,78 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\FormesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NaturesController.cs" />
     <Compile Include="Controllers\PokemonsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\MigrationsBackup\201710181619538_InitialMigration.cs" />
-    <Compile Include="Controllers\MigrationsBackup\201710181619538_InitialMigration.Designer.cs">
+    <Compile Include="Migrations\201710181619538_InitialMigration.cs" />
+    <Compile Include="Migrations\201710181619538_InitialMigration.Designer.cs">
       <DependentUpon>201710181619538_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\MigrationsBackup\201710181736377_FormesArrayFix.cs" />
-    <Compile Include="Controllers\MigrationsBackup\201710181736377_FormesArrayFix.Designer.cs">
+    <Compile Include="Migrations\201710181736377_FormesArrayFix.cs" />
+    <Compile Include="Migrations\201710181736377_FormesArrayFix.Designer.cs">
       <DependentUpon>201710181736377_FormesArrayFix.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\MigrationsBackup\201710181814088_FormesArrayFixPartTwo.cs" />
-    <Compile Include="Controllers\MigrationsBackup\201710181814088_FormesArrayFixPartTwo.Designer.cs">
+    <Compile Include="Migrations\201710181814088_FormesArrayFixPartTwo.cs" />
+    <Compile Include="Migrations\201710181814088_FormesArrayFixPartTwo.Designer.cs">
       <DependentUpon>201710181814088_FormesArrayFixPartTwo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\MigrationsBackup\201710181849287_FormesArrayFixPartThree.cs" />
-    <Compile Include="Controllers\MigrationsBackup\201710181849287_FormesArrayFixPartThree.Designer.cs">
+    <Compile Include="Migrations\201710181849287_FormesArrayFixPartThree.cs" />
+    <Compile Include="Migrations\201710181849287_FormesArrayFixPartThree.Designer.cs">
       <DependentUpon>201710181849287_FormesArrayFixPartThree.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\MigrationsBackup\201710181859437_FormesArrayFix4.cs" />
-    <Compile Include="Controllers\MigrationsBackup\201710181859437_FormesArrayFix4.Designer.cs">
+    <Compile Include="Migrations\201710181859437_FormesArrayFix4.cs" />
+    <Compile Include="Migrations\201710181859437_FormesArrayFix4.Designer.cs">
       <DependentUpon>201710181859437_FormesArrayFix4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\MigrationsBackup\201710182002096_FormesArrayFix5.cs" />
-    <Compile Include="Controllers\MigrationsBackup\201710182002096_FormesArrayFix5.Designer.cs">
+    <Compile Include="Migrations\201710182002096_FormesArrayFix5.cs" />
+    <Compile Include="Migrations\201710182002096_FormesArrayFix5.Designer.cs">
       <DependentUpon>201710182002096_FormesArrayFix5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\MigrationsBackup\201710182010351_FormesArrayFix6.cs" />
-    <Compile Include="Controllers\MigrationsBackup\201710182010351_FormesArrayFix6.Designer.cs">
+    <Compile Include="Migrations\201710182010351_FormesArrayFix6.cs" />
+    <Compile Include="Migrations\201710182010351_FormesArrayFix6.Designer.cs">
       <DependentUpon>201710182010351_FormesArrayFix6.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\MigrationsBackup\201710182034275_FormesArrayFix7.cs" />
-    <Compile Include="Controllers\MigrationsBackup\201710182034275_FormesArrayFix7.Designer.cs">
+    <Compile Include="Migrations\201710182034275_FormesArrayFix7.cs" />
+    <Compile Include="Migrations\201710182034275_FormesArrayFix7.Designer.cs">
       <DependentUpon>201710182034275_FormesArrayFix7.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\MigrationsBackup\201710182132086_FormesArrayFix8.cs" />
-    <Compile Include="Controllers\MigrationsBackup\201710182132086_FormesArrayFix8.Designer.cs">
+    <Compile Include="Migrations\201710182132086_FormesArrayFix8.cs" />
+    <Compile Include="Migrations\201710182132086_FormesArrayFix8.Designer.cs">
       <DependentUpon>201710182132086_FormesArrayFix8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191849065_FormesArrayFix9.cs" />
+    <Compile Include="Migrations\201710191849065_FormesArrayFix9.Designer.cs">
+      <DependentUpon>201710191849065_FormesArrayFix9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191855540_FormesArrayFix10.cs" />
+    <Compile Include="Migrations\201710191855540_FormesArrayFix10.Designer.cs">
+      <DependentUpon>201710191855540_FormesArrayFix10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710242010300_RemovedFormesICollection.cs" />
+    <Compile Include="Migrations\201710242010300_RemovedFormesICollection.Designer.cs">
+      <DependentUpon>201710242010300_RemovedFormesICollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710242021315_DisconnectedTables.cs" />
+    <Compile Include="Migrations\201710242021315_DisconnectedTables.Designer.cs">
+      <DependentUpon>201710242021315_DisconnectedTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710242032209_ReconnectedTables.cs" />
+    <Compile Include="Migrations\201710242032209_ReconnectedTables.Designer.cs">
+      <DependentUpon>201710242032209_ReconnectedTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251831286_ReconnectedTablesPart2.cs" />
+    <Compile Include="Migrations\201710251831286_ReconnectedTablesPart2.Designer.cs">
+      <DependentUpon>201710251831286_ReconnectedTablesPart2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710311705010_Natures.cs" />
+    <Compile Include="Migrations\201710311705010_Natures.Designer.cs">
+      <DependentUpon>201710311705010_Natures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711021706016_Descriptions.cs" />
+    <Compile Include="Migrations\201711021706016_Descriptions.Designer.cs">
+      <DependentUpon>201711021706016_Descriptions.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CrudexBackendContext.cs" />
@@ -289,6 +322,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Natures\Create.cshtml" />
+    <Content Include="Views\Natures\Delete.cshtml" />
+    <Content Include="Views\Natures\Details.cshtml" />
+    <Content Include="Views\Natures\Edit.cshtml" />
+    <Content Include="Views\Natures\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -307,32 +345,56 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controllers\MigrationsBackup\201710181619538_InitialMigration.resx">
+    <EmbeddedResource Include="Migrations\201710181619538_InitialMigration.resx">
       <DependentUpon>201710181619538_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\MigrationsBackup\201710181736377_FormesArrayFix.resx">
+    <EmbeddedResource Include="Migrations\201710181736377_FormesArrayFix.resx">
       <DependentUpon>201710181736377_FormesArrayFix.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\MigrationsBackup\201710181814088_FormesArrayFixPartTwo.resx">
+    <EmbeddedResource Include="Migrations\201710181814088_FormesArrayFixPartTwo.resx">
       <DependentUpon>201710181814088_FormesArrayFixPartTwo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\MigrationsBackup\201710181849287_FormesArrayFixPartThree.resx">
+    <EmbeddedResource Include="Migrations\201710181849287_FormesArrayFixPartThree.resx">
       <DependentUpon>201710181849287_FormesArrayFixPartThree.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\MigrationsBackup\201710181859437_FormesArrayFix4.resx">
+    <EmbeddedResource Include="Migrations\201710181859437_FormesArrayFix4.resx">
       <DependentUpon>201710181859437_FormesArrayFix4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\MigrationsBackup\201710182002096_FormesArrayFix5.resx">
+    <EmbeddedResource Include="Migrations\201710182002096_FormesArrayFix5.resx">
       <DependentUpon>201710182002096_FormesArrayFix5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\MigrationsBackup\201710182010351_FormesArrayFix6.resx">
+    <EmbeddedResource Include="Migrations\201710182010351_FormesArrayFix6.resx">
       <DependentUpon>201710182010351_FormesArrayFix6.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\MigrationsBackup\201710182034275_FormesArrayFix7.resx">
+    <EmbeddedResource Include="Migrations\201710182034275_FormesArrayFix7.resx">
       <DependentUpon>201710182034275_FormesArrayFix7.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\MigrationsBackup\201710182132086_FormesArrayFix8.resx">
+    <EmbeddedResource Include="Migrations\201710182132086_FormesArrayFix8.resx">
       <DependentUpon>201710182132086_FormesArrayFix8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191849065_FormesArrayFix9.resx">
+      <DependentUpon>201710191849065_FormesArrayFix9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191855540_FormesArrayFix10.resx">
+      <DependentUpon>201710191855540_FormesArrayFix10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710242010300_RemovedFormesICollection.resx">
+      <DependentUpon>201710242010300_RemovedFormesICollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710242021315_DisconnectedTables.resx">
+      <DependentUpon>201710242021315_DisconnectedTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710242032209_ReconnectedTables.resx">
+      <DependentUpon>201710242032209_ReconnectedTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251831286_ReconnectedTablesPart2.resx">
+      <DependentUpon>201710251831286_ReconnectedTablesPart2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710311705010_Natures.resx">
+      <DependentUpon>201710311705010_Natures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711021706016_Descriptions.resx">
+      <DependentUpon>201711021706016_Descriptions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

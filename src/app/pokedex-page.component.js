@@ -9,22 +9,60 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
 var pokemon_1 = require("./pokemon");
 var PokedexPageComponent = (function () {
-    function PokedexPageComponent() {
+    function PokedexPageComponent(fb) {
+        this.fb = fb;
     }
+    PokedexPageComponent.prototype.ngOnInit = function () {
+        this.formeId = this.formeList[0].Id;
+        this.formeSelector = this.fb.group({
+            pokemonForme: [this.formeId],
+        });
+        this.updateForme(this.formeId);
+    };
+    PokedexPageComponent.prototype.ngOnChanges = function () {
+        if (!!this.formeSelector && !!this.formeList && this.formeList.length > 0) {
+            this.formeSelector.get("pokemonForme").setValue(this.formeList[0].Id);
+            this.updateForme(this.formeList[0].Id);
+        }
+    };
+    PokedexPageComponent.prototype.parseForme = function (formeId) {
+        if (!!formeId) {
+            var id = formeId.split(": ")[1];
+            var numericId = +id;
+            this.updateForme(numericId);
+        }
+    };
+    PokedexPageComponent.prototype.updateForme = function (formeId) {
+        if (!!formeId) {
+            for (var _i = 0, _a = this.formeList; _i < _a.length; _i++) {
+                var forme = _a[_i];
+                if (forme.Id === formeId) {
+                    this.selectedForme = forme;
+                    this.formeSelector.get("pokemonForme").setValue(forme.Id);
+                }
+            }
+        }
+    };
     return PokedexPageComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", pokemon_1.Pokemon)
 ], PokedexPageComponent.prototype, "pokemon", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Array)
+], PokedexPageComponent.prototype, "formeList", void 0);
 PokedexPageComponent = __decorate([
     core_1.Component({
         selector: 'pokedex-page',
         templateUrl: './pokedex-page.component.html',
         styleUrls: ['./pokedex-page.component.css']
-    })
+    }),
+    __metadata("design:paramtypes", [forms_1.FormBuilder])
 ], PokedexPageComponent);
 exports.PokedexPageComponent = PokedexPageComponent;
 //# sourceMappingURL=pokedex-page.component.js.map

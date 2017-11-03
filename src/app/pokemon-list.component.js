@@ -11,35 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var pokedex_data_service_1 = require("./pokedex-data.service");
 var PokemonListComponent = (function () {
-    //selectedType1: string; //Selected Pokemon's primary type
-    //selectedType2: string; //Selected Pokemon's secondary type, if applicable
     function PokemonListComponent(pokedexDataService) {
         this.pokedexDataService = pokedexDataService;
     }
-    PokemonListComponent.prototype.getFormeList = function () {
-        var _this = this;
-        this.pokedexDataService.getFormeList()
-            .then(function (formeList) { return _this.formeList = formeList; });
-    };
-    //Retrieves pokemonList from in-memory data
+    //Retrieves pokemonList from the backend
     PokemonListComponent.prototype.getPokemonList = function () {
         var _this = this;
         this.pokedexDataService.getPokemonList()
-            .then(function (pokemonList) { return _this.pokemonList = pokemonList; });
+            .subscribe(function (pokemonList) { return _this.pokemonList = pokemonList; });
     };
     //Initializes pokemonList
     PokemonListComponent.prototype.ngOnInit = function () {
-        this.getFormeList();
         this.getPokemonList();
     };
     //Handles when the user selects a Pokemon from the list
     PokemonListComponent.prototype.onSelect = function (pokemon) {
         this.selectedPokemon = pokemon;
-        /*this.selectedType1 = this.selectedPokemon.type1;
-        if(this.selectedPokemon.type2 != null)
-          this.selectedType2 = this.selectedPokemon.type2;
-        else
-          this.selectedType2 = null;*/
+        this.formeList = pokemon.Formes;
     };
     return PokemonListComponent;
 }());

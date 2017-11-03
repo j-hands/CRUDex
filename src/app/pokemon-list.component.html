@@ -4,13 +4,13 @@
     <li *ngFor="let pokemon of pokemonList"
       [class.selected]="pokemon === selectedPokemon"
       (click)="onSelect(pokemon)">
-      <span class="badge">{{pokemon.PokemonId}}</span> {{pokemon.PokemonName}}
+      <span class="badge">{{pokemon.Id}}</span> {{pokemon.Name}}
     </li>
   </ul>
-<!--The Pokedex page for the selected Pokemon
-  <sticky sticky-end-class="pokedexPage">
-    <div class="pokedexPage">
-      <pokedex-page [pokemon]="selectedPokemon"></pokedex-page>
+<!--The Pokedex page for the selected Pokemon-->
+  <!--sticky sticky-end-class="pokedexPage"-->
+    <div class="pokedexPage" *ngIf="selectedPokemon">
+      <pokedex-page [pokemon]="selectedPokemon" [formeList]="formeList"></pokedex-page>
     </div>
-  </sticky>-->
+  <!--/sticky-->
 </div>

@@ -5,9 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { StickyModule } from 'ng2-sticky-kit';
 
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
-
 import { RoundDownPipe } from './round-down.pipe';
 
 import { AppComponent }  from './app.component';
@@ -32,7 +29,6 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    //InMemoryWebApiModule.forRoot(InMemoryDataService),
     StickyModule,
   ],
   declarations: [

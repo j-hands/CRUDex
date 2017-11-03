@@ -63,3 +63,11 @@ C:\Users\Jacob\Documents\Visual Studio 2017\Projects\CrudexBackend\CrudexBackend
 C:\Users\Jacob\Documents\Visual Studio 2017\Projects\CrudexBackend\CrudexBackend\obj\Debug\CrudexBackend.Migrations.FormesArrayFix6.resources
 C:\Users\Jacob\Documents\Visual Studio 2017\Projects\CrudexBackend\CrudexBackend\obj\Debug\CrudexBackend.Migrations.FormesArrayFix7.resources
 C:\Users\Jacob\Documents\Visual Studio 2017\Projects\CrudexBackend\CrudexBackend\obj\Debug\CrudexBackend.Migrations.FormesArrayFix8.resources
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\CrudexBackend\CrudexBackend\obj\Debug\CrudexBackend.Migrations.FormesArrayFix9.resources
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\CrudexBackend\CrudexBackend\obj\Debug\CrudexBackend.Migrations.FormesArrayFix10.resources
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\CrudexBackend\CrudexBackend\obj\Debug\CrudexBackend.Migrations.RemovedFormesICollection.resources
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\CrudexBackend\CrudexBackend\obj\Debug\CrudexBackend.Migrations.DisconnectedTables.resources
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\CrudexBackend\CrudexBackend\obj\Debug\CrudexBackend.Migrations.ReconnectedTables.resources
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\CrudexBackend\CrudexBackend\obj\Debug\CrudexBackend.Migrations.ReconnectedTablesPart2.resources
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\CrudexBackend\CrudexBackend\obj\Debug\CrudexBackend.Migrations.Natures.resources
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\CrudexBackend\CrudexBackend\obj\Debug\CrudexBackend.Migrations.Descriptions.resources

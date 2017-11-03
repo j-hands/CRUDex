@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Response, URLSearchParams, RequestOptions, Http } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { Pokemon } from './pokemon';
 import { Forme } from './forme';
@@ -13,18 +15,62 @@ export class PokedexDataService {
 
   constructor(private http: Http) { }
 
-  getFormeList(): Promise<Forme[]> {
-    return this.http.get(this.formeUrl)
-      .toPromise()
-      .then(response => response.json())
+  //Returns the pokemonList from the backend database
+  getPokemonList(): Observable<Pokemon[]> {
+    let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: cpHeaders });
+    return this.http.get(this.pokemonUrl, options)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
-  //Returns the pokemonList from the backend database
-  getPokemonList(): Promise<Pokemon[]> {
-    return this.http.get(this.pokemonUrl)
-      .toPromise()
-      .then(response => response.json())
+  //Takes a Pokemon ID and returns the associated Pokemon object
+  getPokemon(pokemonId: string): Observable<Pokemon> {
+    let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: cpHeaders });
+    console.log(this.pokemonUrl +"/"+ pokemonId);
+    return this.http.get(this.pokemonUrl +"/"+ pokemonId, options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getFormeList(): Observable<Forme[]> {
+    let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: cpHeaders });
+    return this.http.get(this.formeUrl, options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  addPokemon(pokemon: Pokemon): Observable<number> {
+    let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: cpHeaders });
+    return this.http.post(this.pokemonUrl, pokemon, options)
+      .map(success => success.status)
+      .catch(this.handleError);
+  }
+
+  addForme(forme: Forme): Observable<number> {
+    let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: cpHeaders });
+    return this.http.post(this.formeUrl, forme, options)
+      .map(success => success.status)
+      .catch(this.handleError);
+  }
+
+  updatePokemon(pokemon: Pokemon): Observable<number> {
+    let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: cpHeaders });
+    return this.http.put(this.pokemonUrl, pokemon, options)
+      .map(success => success.status)
+      .catch(this.handleError);
+  }
+
+  updateForme(forme: Forme): Observable<number> {
+    let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: cpHeaders });
+    return this.http.put(this.formeUrl, forme, options)
+      .map(success => success.status)
       .catch(this.handleError);
   }
 
@@ -34,9 +80,9 @@ export class PokedexDataService {
     return Promise.reject(error.message || error);
   }
 
-  //Takes a Pokemon ID and returns the associated Pokemon object
-  getPokemon(id: number): Promise<Pokemon> {
-    return this.getPokemonList()
-      .then(pokemonList => pokemonList.find(pokemon => pokemon.pokemonId === id));
+  //Extracts data from some response
+  private extractData(response: Response) {
+    let body = response.json();
+    return body;
   }
 }

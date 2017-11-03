@@ -37,7 +37,6 @@ AppModule = __decorate([
             forms_1.FormsModule,
             forms_1.ReactiveFormsModule,
             http_1.HttpModule,
-            //InMemoryWebApiModule.forRoot(InMemoryDataService),
             ng2_sticky_kit_1.StickyModule,
         ],
         declarations: [

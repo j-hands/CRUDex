@@ -14,13 +14,13 @@ require("rxjs/add/operator/toPromise");
 var NatureDataService = (function () {
     function NatureDataService(http) {
         this.http = http;
-        this.natureUrl = 'api/natureList';
+        this.natureUrl = 'http://localhost:57135/api/natures';
     }
     //Returns the natureList from the in-memory data
     NatureDataService.prototype.getNatureList = function () {
         return this.http.get(this.natureUrl)
             .toPromise()
-            .then(function (response) { return response.json().data; })
+            .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     //Handles errors from the other methods
@@ -31,7 +31,7 @@ var NatureDataService = (function () {
     //Takes a Nature name and returns the associated Nature object
     NatureDataService.prototype.getNature = function (name) {
         return this.getNatureList()
-            .then(function (natureList) { return natureList.find(function (nature) { return nature.name === name; }); });
+            .then(function (natureList) { return natureList.find(function (nature) { return nature.Name === name; }); });
     };
     return NatureDataService;
 }());

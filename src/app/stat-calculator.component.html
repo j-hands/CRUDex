@@ -12,7 +12,7 @@
     <tr>
       <!--Health, or HP, determines how much damage a Pokemon can take before it faints-->
       <td>Health</td>
-      <td>{{pokemon.hp}}</td> <!--Base Health-->
+      <td>{{forme.Hp}}</td> <!--Base Health-->
       <td>
         <input formControlName="healthIv" class="ivInput" type="number"> <!--User inputs Health IVs-->
         <span *ngIf="statCalcForm.get('healthIv').invalid">Please enter a number between 0 and 31</span>
@@ -23,9 +23,9 @@
       </td>
       <td>N/A</td> <!--Natures do not affect the HP stat-->
       <td>
-          <span *ngIf="statCalcForm.get('nature').value.attackMod">
+          <span *ngIf="statCalcForm.get('nature').value.AttackMod">
             <!--Formula used to calculate HP. Different from any other stat.-->
-            {{(((2 * pokemon.hp + statCalcForm.get('healthIv').value + (statCalcForm.get('healthEv').value / 4))
+            {{(((2 * forme.Hp + statCalcForm.get('healthIv').value + (statCalcForm.get('healthEv').value / 4))
             * statCalcForm.get('level').value / 100) + statCalcForm.get('level').value + 10) | roundDown}}
           </span>
       </td>
@@ -33,7 +33,7 @@
     <tr>
       <!--Attack determines how much damage a Pokemon does with physical attacks like Tackle-->
       <td>Attack</td>
-      <td>{{pokemon.att}}</td> <!--Base Attack-->
+      <td>{{forme.Att}}</td> <!--Base Attack-->
       <td>
         <input formControlName="attackIv" class="ivInput" type="number"> <!--User inputs Attack IVs-->
         <span *ngIf="statCalcForm.get('attackIv').invalid">Please enter a number between 0 and 31</span>
@@ -44,23 +44,23 @@
       </td>
       <td>
         <!--Shows how the selected nature affects Attack-->
-        <span *ngIf="statCalcForm.get('nature').value.attackMod">
-            *{{ statCalcForm.get('nature').value?.attackMod }}
-          </span>
+        <span *ngIf="statCalcForm.get('nature').value.AttackMod">
+            *{{ statCalcForm.get('nature').value?.AttackMod }}
+        </span>
       </td>
       <td>
         <!--Formula used to calculate Attack.-->
-        <span *ngIf="statCalcForm.get('nature').value.attackMod">
-            {{(((2 * pokemon.att + statCalcForm.get('attackIv').value + statCalcForm.get('attackEv').value / 4)
+        <span *ngIf="statCalcForm.get('nature').value.AttackMod">
+            {{(((2 * forme.Att + statCalcForm.get('attackIv').value + statCalcForm.get('attackEv').value / 4)
             * statCalcForm.get('level').value / 100) + 5 | roundDown)
-            * statCalcForm.get('nature').value.attackMod | roundDown}}
+            * statCalcForm.get('nature').value.AttackMod | roundDown}}
           </span>
       </td>
     </tr>
     <tr>
       <!--Defense mitigates damage a Pokemon takes from physical attacks like Tackle-->
       <td>Defense</td>
-      <td>{{pokemon.def}}</td> <!--Base Defense-->
+      <td>{{forme.Def}}</td> <!--Base Defense-->
       <td>
         <input formControlName="defenseIv" class="ivInput" type="number"> <!--User inputs Defense IVs-->
         <span *ngIf="statCalcForm.get('defenseIv').invalid">Please enter a number between 0 and 31</span>
@@ -71,23 +71,23 @@
       </td>
       <td>
         <!--Shows how the selected nature affects Defense-->
-        <span *ngIf="statCalcForm.get('nature').value.defenseMod">
-            *{{ statCalcForm.get('nature').value?.defenseMod }}
+        <span *ngIf="statCalcForm.get('nature').value.DefenseMod">
+            *{{ statCalcForm.get('nature').value?.DefenseMod }}
           </span>
       </td>
       <td>
         <!--Formula used to calculate Defense.-->
-        <span *ngIf="statCalcForm.get('nature').value.defenseMod">
-            {{(((2 * pokemon.def + statCalcForm.get('defenseIv').value + statCalcForm.get('defenseEv').value / 4)
+        <span *ngIf="statCalcForm.get('nature').value.DefenseMod">
+            {{(((2 * forme.Def + statCalcForm.get('defenseIv').value + statCalcForm.get('defenseEv').value / 4)
             * statCalcForm.get('level').value / 100) + 5 | roundDown)
-            * statCalcForm.get('nature').value.defenseMod | roundDown}}
+            * statCalcForm.get('nature').value.DefenseMod | roundDown}}
           </span>
       </td>
     </tr>
     <tr>
       <!--Special Attack determines how much damage a Pokemon does with special attacks like Flamethrower-->
       <td>Special Attack</td>
-      <td>{{pokemon.spa}}</td> <!--Base Special Attack-->
+      <td>{{forme.SpA}}</td> <!--Base Special Attack-->
       <td>
         <input formControlName="spAttackIv" class="ivInput" type="number"> <!--User inputs Special Attack IVs-->
         <span *ngIf="statCalcForm.get('spAttackIv').invalid">Please enter a number between 0 and 31</span>
@@ -98,23 +98,23 @@
       </td>
       <td>
         <!--Shows how the selected nature affects Special Attack-->
-        <span *ngIf="statCalcForm.get('nature').value.spAttackMod">
-            *{{ statCalcForm.get('nature').value?.spAttackMod }}
+        <span *ngIf="statCalcForm.get('nature').value.SpAttackMod">
+            *{{ statCalcForm.get('nature').value?.SpAttackMod }}
           </span>
       </td>
       <td>
         <!--Formula used to calculate Special Attack.-->
-        <span *ngIf="statCalcForm.get('nature').value.spAttackMod">
-            {{(((2 * pokemon.spa + statCalcForm.get('spAttackIv').value + statCalcForm.get('spAttackEv').value / 4)
+        <span *ngIf="statCalcForm.get('nature').value.SpAttackMod">
+            {{(((2 * forme.SpA + statCalcForm.get('spAttackIv').value + statCalcForm.get('spAttackEv').value / 4)
             * statCalcForm.get('level').value / 100) + 5 | roundDown)
-            * statCalcForm.get('nature').value.spAttackMod | roundDown}}
+            * statCalcForm.get('nature').value.SpAttackMod | roundDown}}
           </span>
       </td>
     </tr>
     <tr>
       <!--Special Defense mitigates damage a Pokemon takes from special attacks like Flamethrower-->
       <td>Special Defense</td>
-      <td>{{pokemon.spd}}</td> <!--Base Special Defense-->
+      <td>{{forme.SpD}}</td> <!--Base Special Defense-->
       <td>
         <input formControlName="spDefenseIv" class="ivInput" type="number"> <!--User inputs Special Defense IVs-->
         <span *ngIf="statCalcForm.get('spDefenseIv').invalid">Please enter a number between 0 and 31</span>
@@ -125,23 +125,23 @@
       </td>
       <td>
         <!--Shows how the selected nature affects Special Defense-->
-        <span *ngIf="statCalcForm.get('nature').value.spDefenseMod">
-            *{{ statCalcForm.get('nature').value?.spDefenseMod }}
+        <span *ngIf="statCalcForm.get('nature').value.SpDefenseMod">
+            *{{ statCalcForm.get('nature').value?.SpDefenseMod }}
           </span>
       </td>
       <td>
         <!--Formula used to calculate Special Defense.-->
-        <span *ngIf="statCalcForm.get('nature').value.spDefenseMod">
-            {{(((2 * pokemon.spd + statCalcForm.get('spDefenseIv').value + statCalcForm.get('spDefenseEv').value / 4)
+        <span *ngIf="statCalcForm.get('nature').value.SpDefenseMod">
+            {{(((2 * forme.SpD + statCalcForm.get('spDefenseIv').value + statCalcForm.get('spDefenseEv').value / 4)
             * statCalcForm.get('level').value / 100) + 5 | roundDown)
-            * statCalcForm.get('nature').value.spDefenseMod | roundDown}}
+            * statCalcForm.get('nature').value.SpDefenseMod | roundDown}}
           </span>
       </td>
     </tr>
     <tr>
       <!--With a few exceptions, the Pokemon with the highest speed moves first on a given turn-->
       <td>Speed</td>
-      <td>{{pokemon.spe}}</td>  <!--Base Speed-->
+      <td>{{forme.Spe}}</td>  <!--Base Speed-->
       <td>
         <input formControlName="speedIv" class="ivInput" type="number"> <!--User inputs Speed IVs-->
         <span *ngIf="statCalcForm.get('speedIv').invalid">Please enter a number between 0 and 31</span>
@@ -152,24 +152,24 @@
       </td>
       <td>
         <!--Shows how the selected nature affects Speed-->
-        <span *ngIf="statCalcForm.get('nature').value.speedMod">
-            *{{ statCalcForm.get('nature').value?.speedMod }}
+        <span *ngIf="statCalcForm.get('nature').value.SpeedMod">
+            *{{ statCalcForm.get('nature').value?.SpeedMod }}
           </span>
       </td>
       <td>
         <!--Formula used to calculate Speed.-->
-        <span *ngIf="statCalcForm.get('nature').value.speedMod">
-            {{(((2 * pokemon.spe + statCalcForm.get('speedIv').value + statCalcForm.get('speedEv').value / 4)
+        <span *ngIf="statCalcForm.get('nature').value.SpeedMod">
+            {{(((2 * forme.Spe + statCalcForm.get('speedIv').value + statCalcForm.get('speedEv').value / 4)
             * statCalcForm.get('level').value / 100) + 5 | roundDown)
-            * statCalcForm.get('nature').value.speedMod | roundDown}}
+            * statCalcForm.get('nature').value.SpeedMod | roundDown}}
           </span>
       </td>
     </tr>
   </table>
   <p>Nature:
     <select formControlName="nature">
-      <option>Select a nature</option>
-      <option *ngFor="let nature of natureList" [ngValue]="nature">{{ nature.name }}</option>
+      <option>Select a Nature</option>
+      <option *ngFor="let nature of natureList" [ngValue]="nature">{{ nature.Name }}</option>
     </select>
   </p>
   <p>Level: <input formControlName="level" class="levelInput" type="number"></p>

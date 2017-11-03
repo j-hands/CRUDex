@@ -1,17 +1,17 @@
 import { Pokemon } from './pokemon';
 
 export class Forme {
-  formeId: number;
-  formeName: string;
-  hp: number;
-  att: number;
-  def: number;
-  spa: number;
-  spd: number;
-  spe: number;
-  type1: string;
-  type2: string;
-  image: string;
-  mainPokemonId: number;
-  mainPokemon: Pokemon;
+  Id: number;
+  Name: string;
+  Hp: number;
+  Att: number;
+  Def: number;
+  Spa: number;
+  Spd: number;
+  Spe: number;
+  Type1: string;
+  Type2: string;
+  Image: string;
+  Description: string;
+  PokemonId: number;
 }
