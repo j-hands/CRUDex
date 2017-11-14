@@ -41,9 +41,14 @@ export class PokedexPageEditComponent {
     }
   }
 
-  public parseForme(formeId: number): void {
+  public parseForme(formeId: string): void {
+    if (!!formeId && formeId === "Add Forme"){
+      this.newForme();
+    } else
     if (!!formeId) {
-      this.updateFormeSelector(formeId);
+      let id = formeId.split(": ")[1];
+      let numericId = +id;
+      this.updateFormeSelector(numericId);
     }
   }
 
@@ -59,9 +64,12 @@ export class PokedexPageEditComponent {
 
   public newForme() {
     let emptyForme = new Forme('New Forme',0,0,0,0,0,0,'Normal','','Image Path','Description',this.pokemon.Id);
-    this.pokedexDataService.addForme(emptyForme).subscribe();
-    this.formeList.push(emptyForme);
-    this.onRefresh.emit(true);
+    this.pokedexDataService.addForme(emptyForme).subscribe(
+      addedForme => {
+        console.log(addedForme),
+        this.onRefresh.emit(true)
+      }
+    );
   }
 
   public save() {
@@ -71,7 +79,9 @@ export class PokedexPageEditComponent {
   }
 
   public deleteForme(forme: Forme) {
-    this.pokedexDataService.deleteForme(forme).subscribe();
+    this.pokedexDataService.deleteForme(forme).subscribe(
+      () => this.onRefresh.emit(true)
+    );
   }
 }
 

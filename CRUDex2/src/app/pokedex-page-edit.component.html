@@ -3,10 +3,15 @@
   <input [(ngModel)]="pokemon.Name"
          placeholder="{{pokemon.Name}}"
          style="width:8em;"/>   <!--Selected Pokemon's name-->
+  <h3>National Pokedex ID:</h3>
+  <input [(ngModel)]="pokemon.PokedexNumber"
+         placeholder="{{pokemon.PokedexNumber}}"
+         style="width:2.5em;"/>
   <form [formGroup]="formeSelector" novalidate>
     <p>Forme:
       <select #formeSelect formControlName="pokemonForme" (change)="parseForme(formeSelect.value)">
         <option *ngFor="let forme of formeList" [ngValue]="forme.Id">{{forme.Name}}</option>
+        <option>Add Forme</option>
       </select>
     </p>
     <h3>Forme name:</h3>

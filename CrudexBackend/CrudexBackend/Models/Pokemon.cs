@@ -7,6 +7,7 @@ namespace CrudexBackend.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int PokedexNumber { get; set; }
 
         public virtual ICollection<Forme> Formes { get; set; }
     }

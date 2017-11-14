@@ -42,51 +42,51 @@ export class PokedexDataService {
       .catch(this.handleError);
   }
 
-  addPokemon(pokemon: Pokemon): Observable<number> {
+  addPokemon(pokemon: Pokemon): Observable<Pokemon> {
     let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: cpHeaders });
     return this.http.post(this.pokemonUrl, pokemon, options)
-      .map(success => success.status)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
-  addForme(forme: Forme): Observable<number> {
+  addForme(forme: Forme): Observable<Forme> {
     let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: cpHeaders });
     return this.http.post(this.formeUrl, forme, options)
-      .map(success => success.status)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
-  updatePokemon(pokemon: Pokemon): Observable<number> {
+  updatePokemon(pokemon: Pokemon): Observable<Pokemon> {
     let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: cpHeaders });
     return this.http.put(this.pokemonUrl+"/"+pokemon.Id, pokemon, options)
-      .map(success => success.status)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
-  updateForme(forme: Forme): Observable<number> {
+  updateForme(forme: Forme): Observable<Forme> {
     let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: cpHeaders });
     return this.http.put(this.formeUrl+"/"+forme.Id, forme, options)
-      .map(success => success.status)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
-  deletePokemon(pokemon: Pokemon): Observable<number> {
+  deletePokemon(pokemon: Pokemon): Observable<Pokemon> {
     let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: cpHeaders });
     return this.http.delete(this.pokemonUrl+"/"+pokemon.Id, options)
-      .map(success => success.status)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
-  deleteForme(forme: Forme): Observable<number> {
+  deleteForme(forme: Forme): Observable<Forme> {
     let cpHeaders = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: cpHeaders});
     return this.http.delete(this.formeUrl + "/" + forme.Id, options)
-      .map(success => success.status)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 

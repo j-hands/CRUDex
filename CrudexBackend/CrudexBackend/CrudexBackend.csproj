@@ -264,6 +264,10 @@
     <Compile Include="Migrations\201711021706016_Descriptions.Designer.cs">
       <DependentUpon>201711021706016_Descriptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711142116016_PokedexNumber.cs" />
+    <Compile Include="Migrations\201711142116016_PokedexNumber.Designer.cs">
+      <DependentUpon>201711142116016_PokedexNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CrudexBackendContext.cs" />
     <Compile Include="Models\Forme.cs" />
@@ -397,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711021706016_Descriptions.resx">
       <DependentUpon>201711021706016_Descriptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711142116016_PokedexNumber.resx">
+      <DependentUpon>201711142116016_PokedexNumber.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
