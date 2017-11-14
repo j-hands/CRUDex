@@ -1,0 +1,66 @@
+﻿@model CrudexBackend.Models.Nature
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Nature</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttackMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttackMod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DefenseMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DefenseMod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpAttackMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpAttackMod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpDefenseMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpDefenseMod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpeedMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpeedMod)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
