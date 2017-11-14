@@ -1,0 +1,74 @@
+<div *ngIf="pokemon">         <!--Displays when the Edit button is clicked-->
+  <h3>Name:</h3>
+  <input [(ngModel)]="pokemon.Name"
+         placeholder="{{pokemon.Name}}"
+         style="width:8em;"/>   <!--Selected Pokemon's name-->
+  <form [formGroup]="formeSelector" novalidate>
+    <p>Forme:
+      <select #formeSelect formControlName="pokemonForme" (change)="parseForme(formeSelect.value)">
+        <option *ngFor="let forme of formeList" [ngValue]="forme.Id">{{forme.Name}}</option>
+      </select>
+    </p>
+    <h3>Forme name:</h3>
+    <input [(ngModel)]="selectedForme.Name"
+           [ngModelOptions]="{standalone:true}"
+           placeholder="{{selectedForme.Name}}"
+           style="width:15em;"/>
+    <h3>Image path:</h3>
+    <input [(ngModel)]="selectedForme.Image"
+           [ngModelOptions]="{standalone: true}"
+           placeholder="{{selectedForme.Image}}"
+           style="width:20em;"/>
+    <p>
+      <img src="{{selectedForme.Image}}" style="width:128px;height:128px;">
+    </p> <!--Pokemon's artwork-->
+    <h3>Primary type:</h3>
+    <input [(ngModel)]="selectedForme.Type1"
+           [ngModelOptions]="{standalone: true}"
+           placeholder="{{selectedForme.Type1}}"
+           style="width:4em;"/>
+    <img src="/assets/Types/{{selectedForme.Type1}}.png">
+    <!--Image representing Pokemon's primary type-->
+    <h3>Secondary type:</h3>
+    <input [(ngModel)]="selectedForme.Type2"
+           [ngModelOptions]="{standalone: true}"
+           placeholder="{{selectedForme.Type2}}"
+           style="width:4em;"/>
+    <span *ngIf="selectedForme.Type2"> <img src="/assets/Types/{{selectedForme.Type2}}.png"></span>
+    <!--Image representing Pokemon's secondary type, if present-->
+    <h3>Description:</h3>
+    <p>
+      <textarea [(ngModel)]="selectedForme.Description"
+                [ngModelOptions]="{standalone: true}"
+                placeholder="{{selectedForme.Description}}"
+                style="width:25em;height:5em;"></textarea>
+    </p>
+    <!--Stat editors-->
+    <h3>Stats:</h3>
+    <p>Health: <input [(ngModel)]="selectedForme.Hp"
+                      [ngModelOptions]="{standalone: true}"
+                      placeholder="{{selectedForme.Hp}}"
+                      style="width:2.5em;"></p>
+    <p>Attack: <input [(ngModel)]="selectedForme.Att"
+                      [ngModelOptions]="{standalone: true}"
+                      placeholder="{{selectedForme.Att}}"
+                      style="width:2.5em;"></p>
+    <p>Defense: <input [(ngModel)]="selectedForme.Def"
+                       [ngModelOptions]="{standalone: true}"
+                       placeholder="{{selectedForme.Def}}"
+                       style="width:2.5em;"></p>
+    <p>Special Attack: <input [(ngModel)]="selectedForme.SpA"
+                              [ngModelOptions]="{standalone: true}"
+                              placeholder="{{selectedForme.SpA}}"
+                              style="width:2.5em;"></p>
+    <p>Special Defense: <input [(ngModel)]="selectedForme.SpD"
+                               [ngModelOptions]="{standalone: true}"
+                               placeholder="{{selectedForme.SpD}}"
+                               style="width:2.5em;"></p>
+    <p>Speed: <input [(ngModel)]="selectedForme.Spe"
+                     [ngModelOptions]="{standalone: true}"
+                     placeholder="{{selectedForme.Spe}}"
+                     style="width:2.5em;"></p>
+  </form>
+  <button (click)="deleteForme(selectedForme)">Delete Forme</button>
+</div>

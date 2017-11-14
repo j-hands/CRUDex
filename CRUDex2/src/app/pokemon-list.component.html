@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      <h2>Pokemon</h2>
+      <div class="btn-group-vertical">
+        <button *ngFor="let pokemon of pokemonList"
+                (click)="onSelect(pokemon)"
+                type="button"
+                class="btn btn-block"
+                [class.btn-secondary]="pokemon === selectedPokemon"
+                style="text-align:left;">
+          <h5>{{pokemon.Id}} <small>{{pokemon.Name}}</small></h5>
+        </button>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <!--The Pokedex page for the selected Pokemon-->
+      <!--sticky sticky-end-class="pokedexPage"-->
+      <div class="pokedexPage" *ngIf="selectedPokemon && !edit">
+        <pokedex-page [pokemon]="selectedPokemon" [formeList]="formeList"></pokedex-page>
+      </div>
+      <div class="pokedexPage" *ngIf="selectedPokemon && edit">
+        <pokedex-page-edit [pokemon]="selectedPokemon" [formeList]="formeList" (onRefresh)="onRefresh($event)"></pokedex-page-edit>
+      </div>
+      <!--/sticky-->
+    </div>
+    <div class="col-sm-1">
+      <button *ngIf="selectedPokemon && !edit" type="button" class="btn btn-block" (click)="edit = !edit">Edit</button>
+      <div *ngIf="selectedPokemon && edit">
+        <button type="button" class="btn btn-block" (click)="edit = !edit">Cancel</button>
+        <button type="button" class="btn btn-block" (click)="save()">Save</button>
+        <button type="button" class="btn btn-block">New Forme</button>
+      </div>
+    </div>
+  </div>
+</div>
