@@ -20,17 +20,20 @@
     </div>
     <div class="col-sm-8">
       <!--The Pokedex page for the selected Pokemon-->
-      <!--sticky sticky-end-class="pokedexPage"-->
-      <div class="pokedexPage" *ngIf="selectedPokemon && !edit">
+      <div *ngIf="selectedPokemon && !edit">
         <pokedex-page [pokemon]="selectedPokemon" [formeList]="formeList"></pokedex-page>
       </div>
-      <div class="pokedexPage" *ngIf="selectedPokemon && edit">
-        <pokedex-page-edit [pokemon]="selectedPokemon" [formeList]="formeList" (onRefresh)="onRefresh($event)"></pokedex-page-edit>
+      <div *ngIf="selectedPokemon && edit">
+        <pokedex-page-edit [pokemon]="selectedPokemon"
+                           [formeList]="formeList"
+                           (onRefresh)="onRefresh($event)"></pokedex-page-edit>
       </div>
-      <!--/sticky-->
     </div>
     <div class="col-sm-1">
-      <button *ngIf="selectedPokemon && !edit" type="button" class="btn btn-block" (click)="edit = !edit">Edit</button>
+      <div *ngIf="selectedPokemon && !edit">
+        <button type="button" class="btn btn-block" (click)="edit = !edit">Edit</button>
+        <button type="button" class="btn btn-block" (click)="deletePokemon()">Delete</button>
+      </div>
       <div *ngIf="selectedPokemon && edit">
         <button type="button" class="btn btn-block" (click)="edit = !edit">Cancel</button>
         <button type="button" class="btn btn-block" (click)="save()">Save</button>

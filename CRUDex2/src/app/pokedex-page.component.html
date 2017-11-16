@@ -6,7 +6,7 @@
         <option *ngFor="let forme of formeList" [ngValue]="forme.Id">{{forme.Name}}</option>
       </select>
     </p>
-    <img src="{{selectedForme.Image}}" style="width:128px;height:128px;"> <!--Pokemon's artwork-->
+    <img src="assets/Artwork/{{selectedForme.Image}}.png" onError="this.src='assets/Artwork/000Missingno.png';" style="width:128px;height:128px;"> <!--Pokemon's artwork-->
     <p>
       <img src="/assets/Types/{{selectedForme.Type1}}.png">
       <!--Image representing Pokemon's primary type-->

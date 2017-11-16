@@ -63,6 +63,7 @@ export class PokedexPageEditComponent {
   }
 
   public newForme() {
+    this.save();
     let emptyForme = new Forme('New Forme',0,0,0,0,0,0,'Normal','','Image Path','Description',this.pokemon.Id);
     this.pokedexDataService.addForme(emptyForme).subscribe(
       addedForme => {

@@ -19,13 +19,13 @@
            [ngModelOptions]="{standalone:true}"
            placeholder="{{selectedForme.Name}}"
            style="width:15em;"/>
-    <h3>Image path:</h3>
+    <h3>Image name:</h3>
     <input [(ngModel)]="selectedForme.Image"
            [ngModelOptions]="{standalone: true}"
            placeholder="{{selectedForme.Image}}"
            style="width:20em;"/>
     <p>
-      <img src="{{selectedForme.Image}}" style="width:128px;height:128px;">
+      <img src="assets/Artwork/{{selectedForme.Image}}.png" onError="this.src='assets/Artwork/000Missingno.png';" style="width:128px;height:128px;">
     </p> <!--Pokemon's artwork-->
     <h3>Primary type:</h3>
     <input [(ngModel)]="selectedForme.Type1"

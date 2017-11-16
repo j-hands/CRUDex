@@ -18,6 +18,7 @@ namespace CrudexBackend.Controllers
         private CrudexBackendContext db = new CrudexBackendContext();
 
         // GET: api/Pokemons
+        [Route("api/Pokemons")]
         [HttpGet]
         public IQueryable<Pokemon> GetPokemons()
         {
@@ -26,6 +27,7 @@ namespace CrudexBackend.Controllers
 
         // GET: api/Pokemons/5
         [ResponseType(typeof(Pokemon))]
+        [Route("api/Pokemons/{id}")]
         [HttpGet]
         public async Task<IHttpActionResult> GetPokemon(int id)
         {
@@ -77,6 +79,7 @@ namespace CrudexBackend.Controllers
 
         // POST: api/Pokemons
         [ResponseType(typeof(Pokemon))]
+        [Route("api/Pokemons")]
         [HttpPost]
         public async Task<IHttpActionResult> PostPokemon(Pokemon pokemon)
         {
@@ -88,11 +91,12 @@ namespace CrudexBackend.Controllers
             db.Pokemons.Add(pokemon);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = pokemon.Id }, pokemon);
+            return CreatedAtRoute("DefaultApi", new { controller = "pokemons", id = pokemon.Id }, pokemon);
         }
 
         // DELETE: api/Pokemons/5
         [ResponseType(typeof(Pokemon))]
+        [Route("api/Pokemons/{id}")]
         [HttpDelete]
         public async Task<IHttpActionResult> DeletePokemon(int id)
         {

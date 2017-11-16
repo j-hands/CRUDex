@@ -18,6 +18,8 @@ namespace CrudexBackend.Controllers
         private CrudexBackendContext db = new CrudexBackendContext();
 
         // GET: api/Formes
+        [Route("api/Formes")]
+        [HttpGet]
         public IQueryable<Forme> GetFormes()
         {
             return db.Formes;
@@ -25,6 +27,8 @@ namespace CrudexBackend.Controllers
 
         // GET: api/Formes/5
         [ResponseType(typeof(Forme))]
+        [Route("api/Formes/{id}")]
+        [HttpGet]
         public async Task<IHttpActionResult> GetForme(int id)
         {
             Forme forme = await db.Formes.FindAsync(id);
@@ -38,6 +42,8 @@ namespace CrudexBackend.Controllers
 
         // PUT: api/Formes/5
         [ResponseType(typeof(void))]
+        [Route("api/Formes/{id}")]
+        [HttpPut]
         public async Task<IHttpActionResult> PutForme(int id, Forme forme)
         {
             if (!ModelState.IsValid)
@@ -73,6 +79,8 @@ namespace CrudexBackend.Controllers
 
         // POST: api/Formes
         [ResponseType(typeof(Forme))]
+        [Route("api/Formes")]
+        [HttpPost]
         public async Task<IHttpActionResult> PostForme(Forme forme)
         {
             if (!ModelState.IsValid)
@@ -83,11 +91,13 @@ namespace CrudexBackend.Controllers
             db.Formes.Add(forme);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = forme.Id }, forme);
+            return CreatedAtRoute("DefaultApi", new { controller = "formes", id = forme.Id }, forme);
         }
 
         // DELETE: api/Formes/5
         [ResponseType(typeof(Forme))]
+        [Route("api/Formes/{id}")]
+        [HttpDelete]
         public async Task<IHttpActionResult> DeleteForme(int id)
         {
             Forme forme = await db.Formes.FindAsync(id);

@@ -86,11 +86,22 @@ export class PokemonListComponent implements OnInit{
         let emptyForme = new Forme('New Forme',0,0,0,0,0,0,'Normal','','Image Path','Description',this.addedPokemon.Id);
         this.pokedexDataService.addForme(emptyForme).subscribe(
           addedForme => {
-            this.onSelect(addedPokemon);
-            this.onRefresh(true);
+            this.getPokemonList();
           }
         )
       }
     )
+  }
+
+  deletePokemon() {
+    for(let forme of this.formeList) {
+      this.pokedexDataService.deleteForme(forme).subscribe();
+    }
+    this.pokedexDataService.deletePokemon(this.selectedPokemon).subscribe(
+      () => {
+        this.selectedPokemon = null;
+        this.getPokemonList();
+      }
+    );
   }
 }

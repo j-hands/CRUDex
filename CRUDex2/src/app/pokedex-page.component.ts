@@ -35,9 +35,11 @@ export class PokedexPageComponent {
     }
   }
 
-  public parseForme(formeId: number): void {
+  public parseForme(formeId: string): void {
     if (!!formeId) {
-      this.updateForme(formeId);
+      let id = formeId.split(": ")[1];
+      let numericId = +id;
+      this.updateForme(numericId);
     }
   }
 
