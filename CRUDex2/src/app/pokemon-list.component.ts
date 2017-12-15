@@ -1,14 +1,14 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
+import * as rsx from 'rxjs';
+
 import { Pokemon } from './pokemon';
 import { Forme } from './forme';
 import { PokedexDataService } from './pokedex-data.service';
 import { PokedexPageComponent } from './pokedex-page.component';
 import { PokedexPageEditComponent } from './pokedex-page-edit.component';
-
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/map';
-import * as rsx from 'rxjs';
 
 @Component({
   selector: 'pokemon-list',
